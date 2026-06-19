@@ -1,0 +1,9 @@
+# Source material (personal docs — not published)
+*.pdf
+
+# OS / editor
+.DS_Store
+
+# Node / Vercel
+node_modules/
+.vercel/
