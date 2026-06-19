@@ -134,7 +134,7 @@ a.pill:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(80px, 12vh, 120px) 0 56px;
+  padding: clamp(80px, 12vh, 120px) 0 clamp(104px, 15vh, 140px);
   position: relative;
 }
 .hero__inner { display: flex; flex-direction: column; gap: 26px; }
@@ -154,7 +154,7 @@ a.pill:focus-visible {
 .hero__contact { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
 .hero__scroll {
   position: absolute;
-  bottom: 34px; left: 0;
+  bottom: 40px; left: 0;
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -292,15 +292,35 @@ footer {
   font-size: 15px;
   color: var(--muted);
 }
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 32px 0 0;
+}
+
 .link-arrow {
-  display: inline-block;
-  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 34px;
   color: var(--mint);
   font-weight: 500;
-  border-bottom: 1px solid transparent;
-  transition: border-color .25s ease, gap .25s ease;
+  position: relative;
 }
-.link-arrow:hover { border-color: var(--mint); }
+.link-arrow span { transition: transform .25s ease; }
+.link-arrow::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 100%; height: 1px;
+  background: var(--mint);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+.link-arrow:hover::after { transform: scaleX(1); }
+.link-arrow:hover span { transform: translateX(5px); }
 
 /* ============================================================
    MOTION — reveals + hero stagger
@@ -322,6 +342,127 @@ footer {
 @keyframes rise { to { opacity: 1; transform: none; } }
 
 /* ============================================================
+   INTERACTIVE — spotlight, progress, hovers, surprises
+   ============================================================ */
+
+/* cursor spotlight: "your cursor is the light" */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(560px circle at var(--mx, 50%) var(--my, 12%),
+              rgba(168, 230, 220, 0.07), transparent 62%);
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+.spotlight.is-active { opacity: 1; }
+
+/* scroll progress bar */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px; width: 100%;
+  background: linear-gradient(90deg, var(--mint), rgba(168, 230, 220, 0.4));
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 60;
+  will-change: transform;
+}
+
+/* floating quote-curl */
+.curl { animation: floaty 6.5s ease-in-out infinite; }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(-5deg); }
+}
+
+/* hero phrase sheen — rests as solid mint, white highlight sweeps on hover */
+.hero__line em {
+  background: linear-gradient(100deg,
+              var(--mint) 0%, var(--mint) 42%, #ffffff 50%, var(--mint) 58%, var(--mint) 100%);
+  background-size: 260% 100%;
+  background-position: 0% 0;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position .9s cubic-bezier(.4,0,.2,1);
+}
+.hero__line em:hover { background-position: 100% 0; }
+
+/* card hover-lift + glow */
+.stat, .case {
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .3s ease;
+}
+.stat:hover {
+  transform: translateY(-5px);
+  border-color: var(--mint-dim);
+  box-shadow: 0 14px 40px rgba(0,0,0,.45), 0 0 0 1px var(--mint-dim);
+}
+.case:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 55px rgba(0,0,0,.5);
+}
+.roster .pill {
+  transition: transform .2s ease, border-color .2s ease, color .2s ease;
+}
+.roster .pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+/* stat count-up finish pop */
+@keyframes statpop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.13); }
+  100% { transform: scale(1); }
+}
+.stat__num.is-popped { animation: statpop .5s ease; }
+
+/* timeline draw-in */
+.tl { position: relative; border-left-color: transparent; }
+.tl::before {
+  content: "";
+  position: absolute;
+  left: -1px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--mint), var(--line));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+#timeline.is-visible .tl::before { transform: scaleY(1); }
+.tl__item {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+#timeline.is-visible .tl__item { opacity: 1; transform: none; }
+.tl__item::before { transform: scale(0); transition: transform .45s cubic-bezier(.34,1.56,.64,1); }
+#timeline.is-visible .tl__item::before { transform: scale(1); }
+#timeline.is-visible .tl__item:nth-child(1),
+#timeline.is-visible .tl__item:nth-child(1)::before { transition-delay: .15s; }
+#timeline.is-visible .tl__item:nth-child(2),
+#timeline.is-visible .tl__item:nth-child(2)::before { transition-delay: .28s; }
+#timeline.is-visible .tl__item:nth-child(3),
+#timeline.is-visible .tl__item:nth-child(3)::before { transition-delay: .41s; }
+#timeline.is-visible .tl__item:nth-child(4),
+#timeline.is-visible .tl__item:nth-child(4)::before { transition-delay: .54s; }
+#timeline.is-visible .tl__item:nth-child(5),
+#timeline.is-visible .tl__item:nth-child(5)::before { transition-delay: .67s; }
+#timeline.is-visible .tl__item:nth-child(6),
+#timeline.is-visible .tl__item:nth-child(6)::before { transition-delay: .80s; }
+
+/* eyebrow letter-wave easter egg */
+.eyebrow .ch { display: inline-block; transition: transform .2s ease, color .2s ease; }
+.eyebrow:hover .ch { animation: wave .6s ease; }
+@keyframes wave {
+  0%, 100% { transform: translateY(0); color: var(--muted); }
+  40% { transform: translateY(-6px); color: var(--mint); }
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 560px) {
@@ -337,4 +478,16 @@ footer {
   html { scroll-behavior: auto; }
   .reveal, .stagger { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
   .hero__scroll-line { animation: none; }
+  .spotlight, .progress { display: none; }
+  .curl { animation: none; }
+  .hero__line em {
+    background: none;
+    -webkit-text-fill-color: var(--mint);
+    color: var(--mint);
+  }
+  .stat:hover, .case:hover, .roster .pill:hover { transform: none; }
+  .stat__num.is-popped { animation: none; }
+  .tl::before { transform: scaleY(1); transition: none; }
+  .tl__item, .tl__item::before { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .eyebrow:hover .ch { animation: none; }
 }

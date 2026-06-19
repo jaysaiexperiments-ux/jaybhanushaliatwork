@@ -47,7 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
       const val = Math.round(target * eased);
       el.textContent = val + suffix;
-      if (p < 1) requestAnimationFrame(tick);
+      if (p < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.classList.add("is-popped");
+      }
     };
     requestAnimationFrame(tick);
   };
@@ -82,4 +86,56 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // --- Cursor spotlight ("your cursor is the light") ----------------------
+  const spotlight = document.querySelector(".spotlight");
+  if (spotlight && !reduce && finePointer) {
+    let tx = 50, ty = 12, cx = 50, cy = 12, raf = null;
+    const render = () => {
+      cx += (tx - cx) * 0.12;
+      cy += (ty - cy) * 0.12;
+      spotlight.style.setProperty("--mx", cx + "%");
+      spotlight.style.setProperty("--my", cy + "%");
+      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) {
+        raf = requestAnimationFrame(render);
+      } else {
+        raf = null;
+      }
+    };
+    window.addEventListener("mousemove", (ev) => {
+      tx = (ev.clientX / window.innerWidth) * 100;
+      ty = (ev.clientY / window.innerHeight) * 100;
+      spotlight.classList.add("is-active");
+      if (!raf) raf = requestAnimationFrame(render);
+    }, { passive: true });
+  }
+
+  // --- Scroll progress bar ------------------------------------------------
+  const progress = document.getElementById("progress");
+  if (progress) {
+    let ticking = false;
+    const update = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? window.scrollY / h : 0;
+      progress.style.transform = `scaleX(${Math.min(p, 1)})`;
+      ticking = false;
+    };
+    window.addEventListener("scroll", () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  }
+
+  // --- Eyebrow letter-wave (hover surprise) -------------------------------
+  document.querySelectorAll(".eyebrow").forEach((el) => {
+    const text = el.textContent;
+    el.textContent = "";
+    [...text].forEach((c, i) => {
+      const span = document.createElement("span");
+      span.className = "ch";
+      span.textContent = c === " " ? " " : c;
+      span.style.animationDelay = i * 0.03 + "s";
+      el.appendChild(span);
+    });
+  });
 });
