@@ -7,3 +7,7 @@
 # Node / Vercel
 node_modules/
 .vercel/
+
+# Tooling artifacts
+.playwright-mcp/
+.claude/

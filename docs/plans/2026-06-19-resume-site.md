@@ -509,14 +509,14 @@ git commit -m "feat: favicon, OG share image, README"
 - [ ] **Step 1: Create the GitHub repo and push**
 
 ```bash
-gh repo create jay-resume --public --source="/Users/jay/Desktop/Claude Code Agents/Jay's resume" --remote=origin --push
+gh repo create jaybhanushaliatwork --public --source="/Users/jay/Desktop/Claude Code Agents/Jay's resume" --remote=origin --push
 ```
-Expected: repo created under jaysaiexperiments-ux, `main` pushed. (Confirm repo name with user first.)
+Expected: repo created under jaysaiexperiments-ux, `main` pushed.
 
 - [ ] **Step 2: Deploy to Vercel**
 
-Use the Vercel skill/CLI (`vercel` then `vercel --prod`) or connect the GitHub repo in the Vercel dashboard. Framework preset: "Other" (static). Output dir: project root.
-Expected: a unique URL like `https://jay-resume.vercel.app`.
+Use the Vercel skill/CLI (`vercel` then `vercel --prod`) or connect the GitHub repo in the Vercel dashboard. Framework preset: "Other" (static). Output dir: project root. Set the project/production alias to `jayatwork.vercel.app`.
+Expected: live at `https://jayatwork.vercel.app`.
 
 - [ ] **Step 3: Verify live** — open the Vercel URL in Playwright, screenshot, confirm tab title "Jay Bhanushali's resume", links work, OG preview resolves.
 
