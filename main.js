@@ -110,19 +110,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   }
 
-  // --- Scroll progress bar ------------------------------------------------
-  const progress = document.getElementById("progress");
-  if (progress) {
+  // --- Scroll progress comet ----------------------------------------------
+  const comet = document.getElementById("comet");
+  if (comet && !reduce) {
+    const tail = 220; // keep in sync with .comet width
     let ticking = false;
     const update = () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
-      const p = h > 0 ? window.scrollY / h : 0;
-      progress.style.transform = `scaleX(${Math.min(p, 1)})`;
+      const p = h > 0 ? Math.min(window.scrollY / h, 1) : 0;
+      // head sits at p across the viewport; tail trails behind it
+      const headX = p * window.innerWidth;
+      comet.style.setProperty("--x", headX - tail + "px");
       ticking = false;
     };
     window.addEventListener("scroll", () => {
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
     update();
   }
 
