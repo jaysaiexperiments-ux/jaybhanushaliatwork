@@ -20,7 +20,15 @@ python3 -m http.server 8000
 
 ## Deploy
 
-Hosted on Vercel as a static site. Push to `main` → auto-deploys.
+Hosted on Vercel as a static site (project `jayatwork`, aliased to
+`jayatwork.vercel.app`). To ship an update, from this folder run:
+
+```bash
+vercel deploy --prod --yes
+```
+
+(Optional) connect the GitHub repo in the Vercel dashboard — or via
+`vercel git connect` — to get automatic deploys on every push to `main`.
 
 ## Structure
 
