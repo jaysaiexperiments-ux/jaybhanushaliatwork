@@ -6,13 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.documentElement.classList.add("js");
 
-  // --- Smooth scroll (Lenis) ----------------------------------------------
-  if (window.Lenis && !reduce) {
-    const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-    const lraf = (t) => { lenis.raf(t); requestAnimationFrame(lraf); };
-    requestAnimationFrame(lraf);
-  }
-
   // --- Hero load-in -------------------------------------------------------
   const hero = document.getElementById("hero");
   if (hero) {
@@ -150,61 +143,4 @@ document.addEventListener("DOMContentLoaded", () => {
       el.appendChild(span);
     });
   });
-
-  // --- Founders constellation (orbiting ring) -----------------------------
-  const constel = document.getElementById("constellation");
-  if (constel && !reduce) {
-    const founders = [
-      { n: "Rishabh Mariwala", c: "Sharrp Ventures" },
-      { n: "Tamma Carel", c: "Imvelo & iCOR" },
-      { n: "Chaitanya Muppala", c: "Manam Chocolate" },
-      { n: "Ankur Shah", c: "Environmental Educator" },
-      { n: "Jaytirth Ahya", c: "Beachhouse Project" },
-      { n: "Abhijeet Satani", c: "Neuroscientist, Author" },
-      { n: "Abhijeet Agarwal", c: "Whole9Yards | KartIt" },
-      { n: "Sanskar Sawant", c: "Homework Studio" },
-      { n: "Prateek Mittal", c: "Cremeitalia" },
-      { n: "Priyal Thacker", c: "Gusto Foods" },
-      { n: "Sid Pai", c: "UK&Co" },
-      { n: "Bernat Fortet", c: "Restoration Scope" },
-    ];
-
-    const core = document.createElement("div");
-    core.className = "constel__core";
-    core.innerHTML = "<b>12</b><small>founders</small>";
-    constel.appendChild(core);
-
-    const stars = founders.map((f) => {
-      const el = document.createElement("div");
-      el.className = "star";
-      el.innerHTML =
-        '<span class="star__dot"></span>' +
-        '<span class="star__label"><span class="star__name">' + f.n +
-        '</span><span class="star__co">' + f.c + "</span></span>";
-      constel.appendChild(el);
-      return el;
-    });
-
-    let rot = 0, last = performance.now(), paused = false;
-    const speed = 0.05; // radians / second
-    constel.addEventListener("mouseenter", () => (paused = true));
-    constel.addEventListener("mouseleave", () => (paused = false));
-
-    const frame = (now) => {
-      const dt = (now - last) / 1000; last = now;
-      if (!paused) rot += dt * speed;
-      const w = constel.clientWidth;
-      if (w > 0) {
-        const cx = w / 2, r = w * 0.42;
-        stars.forEach((el, i) => {
-          const a = (i / stars.length) * Math.PI * 2 - Math.PI / 2 + rot;
-          el.style.left = (cx + Math.cos(a) * r) + "px";
-          el.style.top = (cx + Math.sin(a) * r) + "px";
-          el.classList.toggle("star--left", Math.cos(a) < -0.01);
-        });
-      }
-      requestAnimationFrame(frame);
-    };
-    requestAnimationFrame(frame);
-  }
 });
