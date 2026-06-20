@@ -112,6 +112,18 @@ a.pill:focus-visible {
   box-shadow: 0 0 0 1px var(--mint), 0 8px 30px rgba(168, 230, 220, 0.18);
   outline: none;
 }
+/* accent pill — the résumé download CTA */
+a.pill--accent {
+  background: var(--mint);
+  color: #0b0b0c;
+  border-color: var(--mint);
+  font-weight: 600;
+}
+a.pill--accent:hover,
+a.pill--accent:focus-visible {
+  color: #0b0b0c;
+  box-shadow: 0 0 0 1px var(--mint), 0 10px 34px rgba(168, 230, 220, 0.35);
+}
 
 /* ---------- mint quote-curl motif (from the deck) ---------- */
 .curl {

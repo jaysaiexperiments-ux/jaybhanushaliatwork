@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Jay Bhanushali — Résumé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --soft: #5b5b5e;
+    --teal: #0f7f70;
+    --mint-bg: #ecf7f4;
+    --line: #e3e1d9;
+    --paper: #fbfaf6;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Inter", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4; margin: 11mm 14mm; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 10.2px;
+    line-height: 1.45;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 12px 26px; }
+
+  /* header */
+  header { border-bottom: 2px solid var(--ink); padding-bottom: 11px; margin-bottom: 13px; }
+  .name { font-family: var(--serif); font-weight: 900; font-size: 38px; letter-spacing: -0.02em; line-height: 1; }
+  .tag { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--teal); margin-top: 8px; }
+  .contact { margin-top: 12px; font-size: 10.5px; color: var(--soft); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .contact a { color: var(--ink); text-decoration: none; }
+  .contact span.sep { color: var(--line); }
+
+  /* sections */
+  section { margin-bottom: 11px; }
+  h2 {
+    font-family: var(--sans); font-weight: 600; font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal);
+    margin-bottom: 7px; padding-bottom: 4px; border-bottom: 1px solid var(--line);
+  }
+
+  .entry { margin-bottom: 8px; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .entry__role { font-family: var(--serif); font-weight: 600; font-size: 13.5px; }
+  .entry__role .at { color: var(--teal); }
+  .entry__when { font-size: 9.5px; color: var(--soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .entry__sub { font-size: 10px; color: var(--soft); font-style: italic; margin-top: 1px; }
+  ul { margin: 5px 0 0 0; padding-left: 14px; }
+  li { margin-bottom: 2px; }
+  li::marker { color: var(--teal); }
+
+  /* stat strip */
+  .stats { display: flex; gap: 8px; margin-bottom: 10px; }
+  .stat { flex: 1; background: var(--mint-bg); border-radius: 8px; padding: 9px 8px; text-align: center; }
+  .stat b { font-family: var(--serif); font-weight: 900; font-size: 18px; color: var(--teal); display: block; line-height: 1; }
+  .stat small { font-size: 8.5px; color: var(--soft); display: block; margin-top: 3px; letter-spacing: .02em; }
+
+  .case { background: var(--mint-bg); border-radius: 8px; padding: 11px 13px; margin-top: 2px; }
+  .case b { font-family: var(--serif); font-size: 12px; }
+  .case ul { margin-top: 4px; }
+
+  .roster { font-size: 10px; color: var(--ink); line-height: 1.7; }
+  .roster b { color: var(--ink); }
+
+  .skills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; font-size: 9.5px; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  footer { margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 9px; color: var(--soft); text-align: center; }
+  footer a { color: var(--teal); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="name">Jay Bhanushali</div>
+    <div class="tag">Always at the crossroads — building something, or around builders.</div>
+    <div class="contact">
+      <a href="mailto:jay0.0bhanushali@gmail.com">jay0.0bhanushali@gmail.com</a>
+      <span class="sep">·</span>
+      <a href="https://www.linkedin.com/in/jaybhanushaliatwork">linkedin.com/in/jaybhanushaliatwork</a>
+      <span class="sep">·</span>
+      <a href="https://wa.me/917977523280">+91 79775 23280</a>
+      <span class="sep">·</span>
+      <span>Mumbai / Hyderabad, India</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Now — Building</h2>
+    <div class="entry">
+      <div class="entry__head">
+        <div class="entry__role">Logout Club <span class="at">— Founder, builder &amp; runner</span></div>
+        <div class="entry__when">2025 — Present</div>
+      </div>
+      <div class="entry__sub">Community · Hyderabad</div>
+      <ul>
+        <li>Started as a run club and grew it into a community built around one idea — <em>logging out</em> and the experiences that come with it.</li>
+        <li>Hosted 50+ runs plus a string of offline experiences, all pointed at that same north star.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Founder Growth — Organic LinkedIn for Founders (Freelance)</h2>
+    <div class="stats">
+      <div class="stat"><b>3M+</b><small>total reach</small></div>
+      <div class="stat"><b>10+</b><small>founders</small></div>
+      <div class="stat"><b>500+</b><small>posts created</small></div>
+      <div class="stat"><b>2k→21k</b><small>followers grown</small></div>
+    </div>
+    <p style="color:var(--soft); margin-bottom:8px;">I help founders create real work, build a presence, and get discovered. <em>Content × Connections × Community.</em></p>
+    <div class="case">
+      <b>Case study — Tamma Carel</b> <span style="color:var(--soft);font-style:italic;">(environmental consultant &amp; founder, UK)</span>
+      <ul>
+        <li>Grew her profile from <b>2,000 → 21,000+</b> followers.</li>
+        <li><b>1.5M+</b> impressions in 365 days — averaging ~100k / month — through organic content &amp; strategy.</li>
+        <li>Connections with chief sustainability officers, ESG heads &amp; founders; podcast invites, collaborations, and a <b>TEDx</b> talk invite.</li>
+      </ul>
+    </div>
+    <p class="roster" style="margin-top:9px;">
+      <b>Founders I've worked with:</b> Rishabh Mariwala (Sharrp Ventures · Marico &amp; Kaya), Tamma Carel (Imvelo &amp; iCOR), Chaitanya Muppala (Manam Chocolate / Almond House), Ankur Shah (Environmental Educator), Jaytirth Ahya (Beachhouse Project), Abhijeet Satani (Neuroscientist, Author), Abhijeet Agarwal (Whole9Yards | KartIt), Sanskar Sawant (Homework Studio), Prateek Mittal (Cremeitalia), Priyal Thacker (Gusto Foods), Sid Pai (UK&amp;Co), Bernat Fortet (Restoration Scope).
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry__head">
+        <div class="entry__role">Brand Manager <span class="at">— Manam Chocolate</span></div>
+        <div class="entry__when">Oct 2024 — Apr 2025</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry__head">
+        <div class="entry__role">Growth <span class="at">— Homework Studio</span></div>
+        <div class="entry__when">Jul 2023 — May 2024</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry__head">
+        <div class="entry__role">Growth Marketing <span class="at">— Beachhouse Project · The Experience Co.</span></div>
+        <div class="entry__when">Aug 2021 — Oct 2022</div>
+      </div>
+      <ul>
+        <li>Built, grew &amp; managed the founder's LinkedIn — content + connections — creating breakthroughs and international meetings.</li>
+        <li>Ran consultative sales calls, improving conversion week-on-week to 15–20% at a 70k+ minimum ticket size.</li>
+        <li>Brought the community together through city meetups (BHX editions, Tribe Meet-ups) and owned messaging, tone &amp; guidebooks.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry__head">
+        <div class="entry__role">Growth Marketing &amp; Operations <span class="at">— TreeWear</span></div>
+        <div class="entry__when">Jun 2019 — Jun 2021</div>
+      </div>
+      <ul>
+        <li>Onboarded retailers &amp; e-tailers, ran engagement campaigns, and managed order fulfilment &amp; inventory end-to-end.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry__head">
+        <div class="entry__role">Growth <span class="at">— Imvelo Ltd (UK)</span></div>
+        <div class="entry__when">Sep 2020 — Present</div>
+      </div>
+      <div class="entry__sub">Environmental consultancy · ongoing</div>
+    </div>
+  </section>
+
+  <div class="two">
+    <section style="margin-bottom:0;">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry__role" style="font-size:12px;">B.E. Mechanical Engineering</div>
+        <div class="entry__sub" style="font-style:normal;">Dwarkadas J. Sanghvi College of Engineering · 2015–2019</div>
+      </div>
+    </section>
+
+    <section style="margin-bottom:0;">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="chip">Organic Growth</span>
+        <span class="chip">LinkedIn Strategy</span>
+        <span class="chip">Content</span>
+        <span class="chip">Community</span>
+        <span class="chip">Brand</span>
+        <span class="chip">Consultative Sales</span>
+        <span class="chip">Email Marketing</span>
+        <span class="chip">SEO</span>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    Full interactive version → <a href="https://jayatwork.vercel.app">jayatwork.vercel.app</a>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 # Source material (personal docs — not published)
 *.pdf
+# ...but DO publish the generated, shareable résumé
+!assets/Jay-Bhanushali-Resume.pdf
 
 # OS / editor
 .DS_Store
