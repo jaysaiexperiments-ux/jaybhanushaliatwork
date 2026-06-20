@@ -311,6 +311,14 @@ footer {
   margin: 32px 0 0;
 }
 
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 30px;
+  margin-top: 34px;
+}
+.link-row .link-arrow { margin-top: 0; }
+
 .link-arrow {
   display: inline-flex;
   align-items: center;
