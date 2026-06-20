@@ -25,7 +25,7 @@ Club; helping founders grow on LinkedIn) and backs it with concrete proof.
 **Hero line:** "Always at the crossroads — building something, or around builders."
 
 - Now: building **Logout Club**.
-- Alongside: helping founders get found on **LinkedIn** (3M+ reach, 5+ founders).
+- Alongside: helping founders get found on **LinkedIn** (3M+ reach, 10+ founders).
 
 The hero answers "what are you doing?" and "why trust you?" in one screen.
 
@@ -39,7 +39,7 @@ The hero answers "what are you doing?" and "why trust you?" in one screen.
    the idea of *logging out* and experiences around it. 50+ runs + multiple
    experiences. Links to instagram.com/logoutclub.hyd.
 4. **Founder growth work (the proof)** — animated stat counters
-   (3M+ reach · 5+ founders · 500+ posts · 2k→21k followers), the roster of
+   (3M+ reach · 10+ founders · 500+ posts · 2k→21k followers), the roster of
    founders worked with, and the **Tamma Carel case study** as a highlight card
    (2k→21k followers, 1.5M impressions/365d ≈ 100k/mo, connections with CSOs/ESG
    heads, podcast + TEDx invites).
@@ -58,6 +58,10 @@ The hero answers "what are you doing?" and "why trust you?" in one screen.
 - Abhijeet Satani — Neuroscientist | Patents, IPs, Published Author
 - Abhijeet Agarwal — Founder, Whole9Yards | KartIt
 - Sanskar Sawant — Founder, Homework Studio
+- Prateek Mittal — Founder & CEO, Cremeitalia (artisanal Italian cheese)
+- Priyal Thacker — Founder & CEO, Gusto Foods (FMCG / food gifting)
+- Sid Pai — Co-Founder & Managing Partner, UK&Co (family-business consulting)
+- Bernat Fortet — Founder, Restoration Scope (reforestation tech, YC '19)
 
 ## Contact (public)
 
